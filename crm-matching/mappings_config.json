@@ -1,0 +1,41 @@
+[
+  {
+        "map_id": "Belgium_crm",
+        "file_path": "OnTradeBELGIEbusinesspartners_ver2.xlsx",
+        "country": "Belgium",
+        "mapings":{
+              "Address": "Huisnr_Adres",
+              "city": "Stadsnaam",
+              "Name": "Klantnm",
+              "post_code": "Postcode",
+              "Phone": "FA_GSM",
+              "email": "FA_Email",
+              "lat_lon": false,
+              "lon_lat": false,
+              "lat": "latitude",
+              "lon": "longitude",
+              "CRM_id": "Klantnr"
+
+        }
+
+  },
+  {
+        "map_id": "Sweden_crm",
+        "file_path": "Sweden_database.xlsx",
+        "country": "Sweden",
+        "mapings":{
+              "Address": "Address",
+              "city": "City",
+              "Name": "Customer_name",
+              "Phone": "Telephone",
+              "email": "E-mail",
+              "lat_lon": "false",
+              "lon_lat": "false",
+              "lat": "false",
+              "lon": "false",
+              "CRM_id": "Customer_ID"
+
+        }
+
+  }
+]

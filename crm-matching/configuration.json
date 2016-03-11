@@ -1,0 +1,129 @@
+[
+    {
+        "id": "CRM Matching ALL",
+        "source_idx": "crm_matching_reference",
+        "source_mapping": "crm_matching_reference",
+        "target_idx": "master_matching_reference",
+        "target_mapping": "master_matching_reference",
+        "active":  true,
+        "download_scores": false,
+        "to_excel": false,
+        "re_index": false,
+        "same_source": false,
+        "do_match": true,
+        "match_run_id": null,
+        "match_count": 50,
+        "match_config" :{
+            "source_output_fields":
+			[
+                { "field_name" :"_id", "identity": true, "in_source": true, "header": "_id", "default_value": "unknown", "download": true },
+                { "field_name" :"unique_id", "header": "place_id", "default_value": "unknown", "download": true },
+                { "field_name" :"CRM_id", "header": "CRM_id", "default_value": "unknown", "download": true },
+                { "field_name" :"Name", "header": "name", "default_value": "unknown", "download": true },
+                { "field_name" :"Address", "header": "street", "default_value": "unknown", "download": true },
+                { "field_name" :"city", "header": "city", "default_value": "unknown", "download": true },
+                { "field_name" :"post_code", "header": "zip", "default_value": "unknown", "download": true},
+                { "field_name" :"phone_t", "header": "phone_trimmed", "default_value": "unknown", "download": true },
+                { "field_name" :"geopoint2", "header": "crm_geopoint", "default_value": "unknown", "download": false }
+            ],
+            "target_output_fields":
+			[
+                { "field_name" :"_id", "identity": true, "in_source": true, "header": "_id_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"pmsi_id", "header": "place_id_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"Name_m", "header": "name_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"street", "header": "street_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"city", "header": "city_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"zip", "header": "zip_tpi", "default_value": "unknown", "download": true},
+                { "field_name" :"phone_t", "header": "phone_trimmed_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"api_source", "header": "api_source_api", "default_value": "unknown", "download": true },
+                { "field_name" :"completeness", "header": "completeness_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"geopoint", "header": "crm_geopoint_tpi", "default_value": "unknown", "download": false }
+            ],
+            "qry_fields":
+			[
+                {
+					"field_name": "Name", "value_field": "Name_m", "type": "query", "query_type": "terms", "bond": "must",
+					"ignore_chars": ["/", "!", "[", "]", "&", "-", ":", "+", "\"", "#", ","], "bool_operator": "or", "is_key_field": true,"min_score": 1.9
+                }
+            ],
+            "flt_fields":
+			[
+            ]
+        }
+    },
+    {
+        "id": "Diageo Matching 2",
+        "source_idx": "horeca_match_place",
+        "source_mapping": "horeca_match",
+        "target_idx": "horeca_match_place",
+        "target_mapping": "horeca_match",
+        "active":  false,
+        "download_scores": false,
+        "to_excel": false,
+        "re_index": false,
+        "same_source": true,
+        "do_match": true,
+        "match_run_id": null,
+        "match_count": 2,
+        "match_config" :{
+            "source_output_fields":
+			[
+                { "field_name" :"_id", "identity": true, "in_source": true, "header": "_id", "default_value": "unknown", "download": true },
+                { "field_name" :"place_id", "header": "place_id", "default_value": "unknown", "download": true },
+                { "field_name" :"Name_m", "header": "name", "default_value": "unknown", "download": true },
+                { "field_name" :"street", "header": "street", "default_value": "unknown", "download": true },
+                { "field_name" :"city", "header": "city", "default_value": "unknown", "download": true },
+                { "field_name" :"zip", "header": "zip", "default_value": "unknown", "download": true},
+                { "field_name" :"phone_trimmed", "header": "phone_trimmed", "default_value": "unknown", "download": true },
+                { "field_name" :"api_source", "header": "api_source", "default_value": "unknown", "download": true },
+                { "field_name" :"completeness", "header": "completeness", "default_value": "unknown", "download": true },
+                { "field_name" :"geopoint", "header": "crm_geopoint", "default_value": "unknown", "download": false },
+                { "field_name" :"website", "header": "website_1", "default_value": "unknown", "download": false },
+                { "field_name" :"Website", "header": "website_2", "default_value": "unknown", "download": false }
+
+            ],
+            "target_output_fields":
+			[
+                { "field_name" :"_id", "identity": true, "in_source": true, "header": "_id_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"place_id", "header": "place_id_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"Name_m", "header": "name_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"street", "header": "street_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"city", "header": "city_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"zip", "header": "zip_tpi", "default_value": "unknown", "download": true},
+                { "field_name" :"phone_trimmed", "header": "phone_trimmed_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"api_source", "header": "api_source_api", "default_value": "unknown", "download": true },
+                { "field_name" :"completeness", "header": "completeness_tpi", "default_value": "unknown", "download": true },
+                { "field_name" :"geopoint", "header": "crm_geopoint_tpi", "default_value": "unknown", "download": false },
+                { "field_name" :"website", "header": "website_tpi_1", "default_value": "unknown", "download": false },
+                { "field_name" :"Website", "header": "website_tpi_2", "default_value": "unknown", "download": false }
+
+            ],
+            "qry_fields":
+			[
+                {
+					"field_name": "Name_m", "value_field": "Name_m", "type": "query", "query_type": "terms", "bond": "must",
+					"ignore_chars": ["/", "!", "[", "]", "&", "-", ":", "+", "\"", "#", ","], "bool_operator": "or", "is_key_field": true,"min_score": 1.9
+                },
+                {
+					"field_name": "street", "value_field": "street", "type": "query", "query_type": "terms", "bond": "should",
+                    "ignore_chars": ["/", "!", "[", "]", "&", "-", ":", "+", "\"", "#", ","], "bool_operator": "or"
+                },
+                {
+					"field_name": "phone_trimmed", "value_field": "phone_trimmed", "type": "query", "query_type": "terms", "bond": "should",
+                    "ignore_chars": ["/", "!", "[", "]", "&", "-", ":", "+", "\"", "#", ","], "bool_operator": "or"
+                },
+                {
+					"field_name": "place_id", "value_field": "place_id", "type": "query", "query_type": "terms", "bond": "must_not",
+                    "ignore_chars": ["/", "!", "[", "]", "&", "-", ":", "+", "\"", "#", ","], "bool_operator": "or"
+                }
+            ],
+            "flt_fields":
+			[
+                { "field_name": "geopoint", "value_field": "geopoint", "type": "filter", "filter_type": "geo_distance", "distance": "3km", "bond": "must" },
+                { "field_name": "details_fetched", "value_field": "details_fetched", "type": "filter", "filter_type": "term", "bond": "must" },
+                { "field_name": "outlet_classify", "value_field": "outlet_classify", "type": "filter", "filter_type": "term", "bond": "must" }
+
+            ]
+        }
+    }
+]
